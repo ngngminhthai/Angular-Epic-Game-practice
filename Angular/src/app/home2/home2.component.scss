@@ -1,9 +1,23 @@
 .featured{
-    background-image: 
-    url(https://4kwallpapers.com/images/walls/thumbs_3t/7338.jpg);
+    background: linear-gradient(rgba(52,41,49,.5),rgba(26,33,74,.7)),
+    url(https://4kwallpapers.com/images/walls/thumbs_3t/7338.jpg) no-repeat;
     background-size: cover;
     /* background-repeat: no-repeat; */
 }
 .pagination ul{
     margin-bottom: 0px !important;
+}
+
+.card{
+    cursor: pointer;
+    overflow: hidden;
+}
+.card-img-top{
+    transition: all 0.55s linear;
+}
+.card:hover{
+    box-shadow: rgba(149, 157, 165, 0.8) 0px 8px 24px;
+    img{
+        transform: scale(1.2);
+    }
 }
