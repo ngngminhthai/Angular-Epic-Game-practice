@@ -10,6 +10,7 @@ import { BasketService } from './basket.service';
   styleUrls: ['./basket.component.scss']
 })
 export class BasketComponent implements OnInit {
+
   basket$: Observable<IBasket>;
   cartItems = [];
   totalPrice: number;
@@ -21,7 +22,7 @@ export class BasketComponent implements OnInit {
     this.cartItems = this.cartService.items;
     this.totalPrice = this.cartService.totalPrice;
 
-    this.cartService.carItems.subscribe((items: []) => {      
+    this.cartService.carItems.subscribe((items: []) => {
       this.cartItems = items;
       this.totalPrice = this.cartService.totalPrice;
     })
@@ -39,7 +40,7 @@ export class BasketComponent implements OnInit {
     this.basketService.decrementItemQuantity(item);
   }
 
-  removeItem(item){
+  removeItem(item) {
     this.cartService.removeItem(item);
   }
 
@@ -53,5 +54,10 @@ export class BasketComponent implements OnInit {
     // this.cartService.loadCart();
   }
 
+  reloadPage() {
+    this.cartService.items.splice(0, this.cartService.items.length)
+    window.localStorage.removeItem('cart_items')
+    window.location.reload()
+  }
 
 }
