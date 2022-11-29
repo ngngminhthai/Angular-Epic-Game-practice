@@ -1,0 +1,78 @@
+<div class="container mt-5">
+  <div class="row">
+    <section class="col-3">
+      <ng-container>
+        <h5 class="text-warning ml-3 mt-3 mb-4">Price</h5>
+        <select class="custom-select mb-4" (change)="handlePricingOrder($event)">
+          <option value="1">
+            Lowest to highest
+          </option>
+          <option value="2">
+            Highest to lowest
+          </option>
+        </select>
+        <h5 class="text-warning ml-3">Brands</h5>
+        <!-- <ul class="list-group mb-3">
+          <li class="list-group-item">
+            action
+          </li>
+        </ul> -->
+        <app-multi-select-dropdown [list]="list" (shareCheckedList)="shareCheckedList($event)"
+          (shareIndividualCheckedList)="shareIndividualCheckedList($event)">
+        </app-multi-select-dropdown>
+        <!-- <h5 class="text-warning ml-3">Types</h5>
+        <ul class="list-group my-3">
+          <li class="list-group-item">
+            123
+          </li>
+        </ul> -->
+      </ng-container>
+    </section>
+    <section class="col-9">
+      <div class="d-flex justify-content-between align-items-center pb-2">
+        <header>
+          <span>Showing
+            <strong>
+              {{startItem}} - {{endItem}}
+            </strong> of <strong>{{total}}</strong> results </span>
+          <!-- <span *ngIf="totalCount === 0">There are <strong>0</strong> results for this filter</span> -->
+        </header>
+
+        <div class="form-inline mt-2" *ngIf="1">
+          <input type="text" (input)="handleSearchContent($event)" class="form-control mr-2" #search
+            placeholder="Search">
+          <button class="btn btn-outline-primary my-2" (click)="applySearch()">Search</button>
+          <button class="btn btn-outline-success ml-2 my-2">Reset</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="row justify-content-around">
+          <div *ngFor="let item of gamesListRender" class="card" style="width: 18rem; margin-bottom: 3rem;">
+
+            <img class="card-img-top" src={{item.coverImage}} alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{item.title}}</h5>
+              <p class="card-text">{{item.description.substring(0, 100)}}...</p>
+              <a href="#" class="btn">${{item.price}}</a>
+              <a href="#" class="btn btn-primary">View</a>
+              <a class="btn btn-primary">Add to card</a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="d-flex justify-content-center" *ngIf="gameListPagination">
+        <pagination [totalItems]="gameListPagination.length" [itemsPerPage]="6" [boundaryLinks]="true" [rotate]="true"
+          [maxSize]="5" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"
+          (pageChanged)="pageChanged($event)">
+        </pagination>
+
+      </div>
+
+
+    </section>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<carousel>
+  <slide>
+    <img
+      src="https://cdn1.epicgames.com/offer/611482b8586142cda48a0786eb8a127c/EGS_DeadByDaylightSilentHillChapter_BehaviourInteractive_DLC_S1_2560x1440-c4ced6cef071b340358b8c2284f3fd29"
+      alt="first slide" style="display: block; width: 100%;">
+  </slide>
+  <slide>
+    <img
+      src="https://cdn1.epicgames.com/offer/611482b8586142cda48a0786eb8a127c/EGS_DeadbyDaylightSilentHillEdition_BehaviourInteractive_Editions_S1_2560x1440-93b1057a7f20610e0d113ae11c9de671"
+      alt="second slide" style="display: block; width: 100%;">
+  </slide>
+  <slide>
+    <img src="https://wallpaperaccess.com/full/805742.jpg" alt="third slide" style="display: block; width: 100%;">
+  </slide>
+</carousel>
+<section class="featured">
+  <div class="d-flex justify-content-center pt-4 mb-3">
+    <h1>Welcome to the shop!</h1>
+  </div>
+  <div class="container-sm">
+    <div class="row justify-content-around">
+      <div *ngFor="let item of renderPage" class="card" style="width: 18rem; margin-bottom: 3rem;">
+
+        <img class="card-img-top" src={{item.coverImage}} alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{item.title}}</h5>
+          <p class="card-text">{{item.description.substring(0, 100)}}...</p>
+          <a href="#" class="btn">${{item.price}}</a>
+          <a [routerLink]="['/game', item.id]" routerLinkActive="router-link-active"  class="btn btn-primary">View</a>
+          <a class="btn btn-primary" (click)="addToCart(item.id)">Add to card</a>
+        </div>
+
+      </div>
+      
+    </div>
+    <!-- <pagination [boundaryLinks]="true" 
+         [directionLinks]="true" 
+         [totalItems]="games.length"
+         [itemsPerPage]="5"
+         (pageChanged)="pageChanged($event)">
+         [maxSize]="3"
+    </pagination> -->
+    <pagination [totalItems]="games.length" [itemsPerPage]="6"
+      [boundaryLinks]="true" [rotate]="true" [maxSize]="5" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;"
+      lastText="&raquo;"
+      (pageChanged)="pageChanged($event)">
+    </pagination>
+  </div>
+
+</section>

@@ -1,0 +1,18 @@
+
+    <ngx-spinner color="#333333" bdColor="rgba(255,255,255,0.7)"
+        template="<img class='rounded-circle' src='https://gifimage.net/wp-content/uploads/2018/10/anime-loading-gif-8.gif' />">
+    </ngx-spinner>
+
+    <div *ngIf="!isLoginPage">
+        <app-nav-bar></app-nav-bar>
+        <app-section-header></app-section-header>
+
+        <div class="main-container">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+    <div *ngIf="isLoginPage" class="login-app">
+        <login-app></login-app>
+    </div>
+
