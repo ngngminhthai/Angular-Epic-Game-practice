@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BasketService } from './basket/basket.service';
 import { AccountService } from './core/services/account.service';
 import { CartService } from './core/services/cart.service';
 import { FormService } from './core/services/form.service';

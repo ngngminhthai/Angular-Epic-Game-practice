@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "lucid-vector-367703": {
+      "hosting": {
+        "client": [
+          "lucid-vector-367703"
+        ]
+      }
+    }
+  }
+}
